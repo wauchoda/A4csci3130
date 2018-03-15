@@ -2,13 +2,22 @@
   "rules": {
     ".read": "true",
     ".write": "true",
-    "contacts": {
-            "$contact": {
-                "name": {
-                    ".validate": "newData.isString() && newData.val().length < 50"
+    "businesses": {
+            "$business": {
+				"businessNumber": {
+                    ".validate": "newData.isString() && newData.val().length == 9"
                 },
-                "email": {
-                    ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
+                "name": {
+                    ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
+                },
+                "primaryBusiness": {
+                    ".validate": "newData.isString()"
+                },
+				"address": {
+					".validate": "newData.isString() && newData.val().length < 50"
+				},
+				"province": {
+                    ".validate": "newData.isString()"
                 }
             }
         }
